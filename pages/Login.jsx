@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { supabase } from '../supabase'
+import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import CampoTexto from '../components/CampoTexto'
 import Botao from '../components/Botao'
@@ -10,14 +11,32 @@ function Login() {
 
     const navegar = useNavigate()
 
-    function entrar(evento) {
-    evento.preventDefault()
+    // Testa o acesso à sessão do Supabase ao abrir o login
+ useEffect(() => {
+ async function testarConexao() {
+ const { data, error } = await supabase.auth.getSession()
+ if (error) {
+ console.log('Erro ao consultar o Supabase:', error.message)
+ } else {
+ console.log('Cliente Supabase inicializado!')
+ console.log('Sessão atual:', data.session)
+ }
+ }
+ testarConexao()
+ }, [])
 
-    if (email === 'teste@email.com' && senha === 'teste') {
-        navegar('/dashboard')
-    } else {
-        alert('E-mail ou senha incorretos!')
-    }
+ async function entrar(evento) {
+ evento.preventDefault()
+ const { data, error } = await
+supabase.auth.signInWithPassword({
+ email: email,
+ password: senha
+ })
+ if (error) {
+ alert('E-mail ou senha incorretos!')
+ return
+ }
+ navegar('/dashboard')
 }
 
     return (
