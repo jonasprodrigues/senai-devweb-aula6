@@ -1,5 +1,7 @@
-import './MenuLateral.css'
 import { useNavigate } from 'react-router-dom'
+import { supabase } from '../supabase'
+import './MenuLateral.css'
+
 
 function MenuLateral() {
 
@@ -8,8 +10,15 @@ usuário para a página de login ao clicar no botão de sair
 */ }
 
       const navegar = useNavigate()
-      function sair() {
-      navegar('/')
+      
+      async function sair() {
+         const { error } = await supabase.auth.signOut()
+         console.log("Usuario fez logout no Supabase")
+         if (error) {
+         alert('Erro ao sair do sistema!')
+         return
+         }
+         navegar('/')
       }
 
       return (
