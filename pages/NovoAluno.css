@@ -1,0 +1,45 @@
+
+.pagina-novo-aluno {
+    padding: 30px;
+}
+
+.pagina-novo-aluno h1 {
+    margin-bottom: 25px;
+    color: #333;
+}
+
+.campo-formulario {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    max-width: 500px;
+}
+
+.campo-formulario label {
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.campo-formulario input {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+
+.pagina-novo-aluno button {
+    padding: 12px 25px;
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.pagina-novo-aluno button:hover {
+    background-color: #1d4ed8;
+}
+
+
+

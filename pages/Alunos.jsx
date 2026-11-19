@@ -14,6 +14,12 @@ function Alunos() {
     const [alunos, setAlunos] = useState([])
     const [carregando, setCarregando] = useState(true)
 
+    const navegar = useNavigate()
+
+    async function NovoAlunoPage() {
+        navegar('/NovoAluno')
+    }
+
     useEffect(() => {
 
         async function buscarAlunos() {
@@ -42,7 +48,7 @@ function Alunos() {
                     <div className="cabecalho-alunos">
                             <h1>Alunos cadastrados</h1>
 
-                            <button className="botao-novo-aluno">
+                            <button className="botao-novo-aluno" onClick={NovoAlunoPage}>
                                 Novo aluno
                             </button>
                     </div>
