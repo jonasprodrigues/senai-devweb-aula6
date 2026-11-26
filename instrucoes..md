@@ -38,7 +38,7 @@ VITE_SUPABASE_ANON_KEY=
 9. Rodar o projeto
 npm.cmd run dev
  
-# Criar versionamento e subir para novo repositorio
+# Carregar projeto no GIT e subir para repositorio novo
 
 1. Inicializar o Git na Pasta src
 cd src
@@ -66,4 +66,15 @@ git branch -M main
 git remote add origin https://github.com/jonasprodrigues/senai-devweb-aula6.git
 
 7. Enviar o projeto
+git push -u origin main
+
+# Criar novo commit e subir para o github
+
+1. Adicionar os arquivos
+git add .
+
+2. Criar o primeiro commit
+git commit -m "Minha Escola - aula 6 "
+
+3. Enviar o projeto
 git push -u origin main
